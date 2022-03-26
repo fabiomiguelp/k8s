@@ -1,0 +1,16 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: front
+  namespace: default
+spec:
+  selector:
+    app: front
+  type: NodePort
+  ports:
+  - name: front
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
+    nodePort: 30001
